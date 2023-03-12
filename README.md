@@ -9,8 +9,7 @@ docker-compose up
 ```
 _ps. make sure port 8080 on your localhost is available_
 
-To see swagger ui documentation go to:
->http://host.docker.internal:8081/swagger-ui/index.html
+Added CI/CD on GitHub Actions
 
 ## Exposed APIs:
 
