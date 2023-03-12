@@ -1,6 +1,10 @@
 package com.blue.bank;
 
+import com.blue.bank.Enum.AccountType;
+import com.blue.bank.controller.AccountController;
+import com.blue.bank.model.Account;
 import com.blue.bank.model.Customer;
+import com.blue.bank.requests.AccountCreationRequest;
 import com.blue.bank.service.AccountService;
 import com.blue.bank.service.CustomerService;
 import org.springframework.boot.CommandLineRunner;
@@ -8,20 +12,29 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 @SpringBootApplication
 public class BankApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BankApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BankApplication.class, args);
+    }
 
-	@Bean
-	CommandLineRunner run(CustomerService customerService, AccountService accountService) {
-		return args -> {
-			Customer todoUser = new TodoUser(null, "Salma Yassin", "salma", "salma",null);
-			TodoUser todoUser2 = new TodoUser(null, "Mohamed Wael", "wael", "wael",null);
-			todoUserService.save(todoUser);
-			todoUserService.save(todoUser2);
-		};
-	}
+    @Bean
+    CommandLineRunner run(CustomerService customerService, AccountService accountService) {
+        return args -> {
+            Customer salma = new Customer(1L, "Salma", "Yassin",
+                    "salmamyassinn@gmail.com", null);
+            Customer wael = new Customer(2L, "Mohamed", "Wael",
+                    "mwael8@outlook.com", null);
+            customerService.registerCustomer(salma);
+            customerService.registerCustomer(wael);
+
+            AccountCreationRequest accountCreationRequest = new AccountCreationRequest(AccountType.SAVINGS,
+                    BigDecimal.valueOf(300), 1L);
+            accountService.create(accountCreationRequest);
+        };
+    }
 }
