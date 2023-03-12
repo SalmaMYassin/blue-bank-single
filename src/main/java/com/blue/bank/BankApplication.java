@@ -25,15 +25,15 @@ public class BankApplication {
     @Bean
     CommandLineRunner run(CustomerService customerService, AccountService accountService) {
         return args -> {
-            Customer salma = new Customer(1L, "Salma", "Yassin",
+            Customer salma = new Customer(null, "Salma", "Yassin",
                     "salmamyassinn@gmail.com", null);
-            Customer wael = new Customer(2L, "Mohamed", "Wael",
+            Customer wael = new Customer(null, "Mohamed", "Wael",
                     "mwael8@outlook.com", null);
             customerService.registerCustomer(salma);
             customerService.registerCustomer(wael);
 
             AccountCreationRequest accountCreationRequest = new AccountCreationRequest(AccountType.SAVINGS,
-                    BigDecimal.valueOf(300), 1L);
+                    BigDecimal.valueOf(300), customerService.getCustomerByEmail("salmamyassinn@gmail.com").getId());
             accountService.create(accountCreationRequest);
         };
     }
