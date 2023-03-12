@@ -16,6 +16,10 @@ public record CustomerService(CustomerRepository customerRepository) {
         return customerRepository.existsById(id);
     }
 
+    public Boolean exists(String email) {
+        return customerRepository.existsByEmail(email);
+    }
+
     public Customer getCustomerById(Long id) {
         return customerRepository.findById(id).orElse(null);
     }

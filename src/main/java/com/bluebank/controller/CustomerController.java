@@ -16,9 +16,15 @@ import java.util.Objects;
 public record CustomerController(CustomerService customerService) {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void register(@RequestBody Customer customer) {
+    public ResponseEntity register(@RequestBody Customer customer) {
         log.info("New Customer Registration {}", customer);
-        customerService.registerCustomer(customer);
+        if (!customerService.exists(customer.getEmail())){
+            customerService.registerCustomer(customer);
+            return new ResponseEntity(HttpStatus.CREATED);
+        }
+        else
+            return new ResponseEntity("Email already exists", HttpStatus.UNPROCESSABLE_ENTITY);
+
     }
 
     @GetMapping(path = "{id}")
