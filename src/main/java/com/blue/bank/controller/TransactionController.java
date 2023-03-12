@@ -1,7 +1,7 @@
-package com.bluebank.controller;
+package com.blue.bank.controller;
 
-import com.bluebank.model.Transaction;
-import com.bluebank.service.TransactionService;
+import com.blue.bank.model.Transaction;
+import com.blue.bank.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

@@ -21,9 +21,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/customer",
+					"raw": "host.docker.internal:8080/api/v1/customer",
 					"host": [
-						"localhost"
+						"host",
+						"docker",
+						"internal"
 					],
 					"port": "8080",
 					"path": [
@@ -42,7 +44,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"customerId\":502,\r\n    \"initialCredit\": 9000,\r\n    \"type\": \"SAVINGS\"\r\n}",
+					"raw": "{\r\n    \"customerId\":1,\r\n    \"initialCredit\": 9000,\r\n    \"type\": \"SAVINGS\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,9 +52,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/account",
+					"raw": "host.docker.internal:8080/api/v1/account",
 					"host": [
-						"localhost"
+						"host",
+						"docker",
+						"internal"
 					],
 					"port": "8080",
 					"path": [
@@ -65,7 +69,7 @@
 			"response": []
 		},
 		{
-			"name": "Get Customer's Data",
+			"name": "Get Customer's Data By Email",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -82,16 +86,58 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/v1/customer/502",
+					"raw": "host.docker.internal:8080/api/v1/customer?email=salmamyassinn@gmail.com",
 					"host": [
-						"localhost"
+						"host",
+						"docker",
+						"internal"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customer"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "salmamyassinn@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer's Data By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\":302,\r\n    \"initialCredit\": 8000,\r\n    \"type\": \"CHECKING\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "host.docker.internal:8080/api/v1/customer/1",
+					"host": [
+						"host",
+						"docker",
+						"internal"
 					],
 					"port": "8080",
 					"path": [
 						"api",
 						"v1",
 						"customer",
-						"502"
+						"1"
 					]
 				}
 			},
@@ -103,9 +149,11 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/account/deposit?accountId=1452&amount=100000",
+					"raw": "host.docker.internal:8080/api/v1/account/deposit?accountId=1452&amount=100000",
 					"host": [
-						"localhost"
+						"host",
+						"docker",
+						"internal"
 					],
 					"port": "8080",
 					"path": [
@@ -134,9 +182,11 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/account/withdraw?accountId=1452&amount=10000",
+					"raw": "host.docker.internal:8080/api/v1/account/withdraw?accountId=52&amount=1000",
 					"host": [
-						"localhost"
+						"host",
+						"docker",
+						"internal"
 					],
 					"port": "8080",
 					"path": [
@@ -148,11 +198,11 @@
 					"query": [
 						{
 							"key": "accountId",
-							"value": "1452"
+							"value": "52"
 						},
 						{
 							"key": "amount",
-							"value": "10000"
+							"value": "1000"
 						}
 					]
 				}
@@ -165,16 +215,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/account/452",
+					"raw": "host.docker.internal:8080/api/v1/account/1",
 					"host": [
-						"localhost"
+						"host",
+						"docker",
+						"internal"
 					],
 					"port": "8080",
 					"path": [
 						"api",
 						"v1",
 						"account",
-						"452"
+						"1"
 					]
 				}
 			},
@@ -186,9 +238,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/account/balance/1402",
+					"raw": "host.docker.internal:8080/api/v1/account/balance/52",
 					"host": [
-						"localhost"
+						"host",
+						"docker",
+						"internal"
 					],
 					"port": "8080",
 					"path": [
@@ -196,7 +250,7 @@
 						"v1",
 						"account",
 						"balance",
-						"1402"
+						"52"
 					]
 				}
 			},
@@ -208,9 +262,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/transaction?accountId=1402",
+					"raw": "host.docker.internal:8080/api/v1/transaction?accountId=52",
 					"host": [
-						"localhost"
+						"host",
+						"docker",
+						"internal"
 					],
 					"port": "8080",
 					"path": [
@@ -221,7 +277,7 @@
 					"query": [
 						{
 							"key": "accountId",
-							"value": "1402"
+							"value": "52"
 						}
 					]
 				}
@@ -234,16 +290,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/v1/transaction/852",
+					"raw": "host.docker.internal:8080/api/v1/transaction/52",
 					"host": [
-						"localhost"
+						"host",
+						"docker",
+						"internal"
 					],
 					"port": "8080",
 					"path": [
 						"api",
 						"v1",
 						"transaction",
-						"852"
+						"52"
 					]
 				}
 			},

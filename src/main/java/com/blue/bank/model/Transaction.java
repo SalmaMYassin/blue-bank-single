@@ -1,6 +1,6 @@
-package com.bluebank.model;
+package com.blue.bank.model;
 
-import com.bluebank.Enum.TransactionType;
+import com.blue.bank.Enum.TransactionType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;

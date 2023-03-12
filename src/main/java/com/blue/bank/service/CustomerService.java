@@ -1,7 +1,7 @@
-package com.bluebank.service;
+package com.blue.bank.service;
 
-import com.bluebank.model.Customer;
-import com.bluebank.repository.CustomerRepository;
+import com.blue.bank.model.Customer;
+import com.blue.bank.repository.CustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +22,9 @@ public record CustomerService(CustomerRepository customerRepository) {
 
     public Customer getCustomerById(Long id) {
         return customerRepository.findById(id).orElse(null);
+    }
+
+    public Customer getCustomerByEmail(String email) {
+        return customerRepository.findByEmail(email);
     }
 }

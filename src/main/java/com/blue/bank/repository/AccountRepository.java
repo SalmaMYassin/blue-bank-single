@@ -1,6 +1,6 @@
-package com.bluebank.repository;
+package com.blue.bank.repository;
 
-import com.bluebank.model.Account;
+import com.blue.bank.model.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

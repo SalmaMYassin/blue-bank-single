@@ -1,4 +1,4 @@
-package com.bluebank.Enum;
+package com.blue.bank.Enum;
 
 public enum TransactionType {
     DEPOSIT,

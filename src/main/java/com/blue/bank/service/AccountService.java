@@ -1,9 +1,9 @@
-package com.bluebank.service;
+package com.blue.bank.service;
 
-import com.bluebank.Enum.AccountType;
-import com.bluebank.model.Account;
-import com.bluebank.repository.AccountRepository;
-import com.bluebank.requests.AccountCreationRequest;
+import com.blue.bank.Enum.AccountType;
+import com.blue.bank.model.Account;
+import com.blue.bank.repository.AccountRepository;
+import com.blue.bank.requests.AccountCreationRequest;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

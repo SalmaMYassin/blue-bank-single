@@ -1,8 +1,8 @@
-package com.bluebank.controller;
+package com.blue.bank.controller;
 
-import com.bluebank.model.Account;
-import com.bluebank.requests.AccountCreationRequest;
-import com.bluebank.service.AccountService;
+import com.blue.bank.model.Account;
+import com.blue.bank.requests.AccountCreationRequest;
+import com.blue.bank.service.AccountService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -19,8 +19,11 @@ import java.util.List;
 public record AccountController(AccountService accountService) {
     @PostMapping
     public ResponseEntity create(@RequestBody AccountCreationRequest account) {
+        if(accountService.customerExists(account.getCustomerId())){
             accountService.create(account);
             return new ResponseEntity(HttpStatus.CREATED);
+        }
+        else return new ResponseEntity("Customer does not exist", HttpStatus.NOT_FOUND);
 
     }
 

@@ -1,4 +1,4 @@
-package com.bluebank.model;
+package com.blue.bank.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;

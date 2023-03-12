@@ -1,6 +1,6 @@
-package com.bluebank.requests;
+package com.blue.bank.requests;
 
-import com.bluebank.Enum.AccountType;
+import com.blue.bank.Enum.AccountType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

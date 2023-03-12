@@ -1,9 +1,9 @@
-package com.bluebank.service;
+package com.blue.bank.service;
 
-import com.bluebank.Enum.TransactionType;
-import com.bluebank.model.Transaction;
-import com.bluebank.repository.AccountRepository;
-import com.bluebank.repository.TransactionRepository;
+import com.blue.bank.Enum.TransactionType;
+import com.blue.bank.model.Transaction;
+import com.blue.bank.repository.AccountRepository;
+import com.blue.bank.repository.TransactionRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -1,7 +1,7 @@
-package com.bluebank.controller;
+package com.blue.bank.controller;
 
-import com.bluebank.model.Customer;
-import com.bluebank.service.CustomerService;
+import com.blue.bank.model.Customer;
+import com.blue.bank.service.CustomerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -24,6 +24,16 @@ public record CustomerController(CustomerService customerService) {
         }
         else
             return new ResponseEntity("Email already exists", HttpStatus.UNPROCESSABLE_ENTITY);
+
+    }
+
+    @GetMapping
+    public ResponseEntity getCustomerData(@RequestParam(name = "email") String email) {
+        Customer customer = customerService.getCustomerByEmail(email);
+        if (Objects.isNull(customer))
+            return new ResponseEntity("Customer does not exist", HttpStatus.NOT_FOUND);
+
+        return new ResponseEntity(customer, HttpStatus.OK);
 
     }
 
