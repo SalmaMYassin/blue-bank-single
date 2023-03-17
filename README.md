@@ -22,7 +22,7 @@ mvn test
 
 #### _Added CI/CD on [GitHub Actions](https://github.com/SalmaMYassin/blue-bank-single/actions)_
 ## Exposed APIs:
-#### _You can find a postman collection: [BlueBank Backend Assessment.postman_collection.json](https://github.com/SalmaMYassin/blue-bank-single/blob/master/BlueBank%20Backend%20Assessment.postman_collection.json) with All the exposed APIs_
+#### _You can find a postman collection: [BlueBank Backend Assessment.postman_collection.json](https://github.com/SalmaMYassin/blue-bank-single/blob/master/BlueBank%20Backend%20Assessment.postman_collection.json) with all the exposed APIs_
 
 ### Customer APIs:
 
