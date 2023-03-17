@@ -104,6 +104,55 @@ status: `200 OK`
 }
 ```
 
+**Get Customer All Customer Accounts:**
+
+Path: **GET
+/api/v1/customer/{id}/accounts**
+
+Example:
+```bash
+curl --location 'host.docker.internal:8080/api/v1/customer/1/accounts'
+```
+status: `200 OK`
+
+```json
+[
+  {
+    "type": "CHECKING",
+    "createdAt": "2023-03-17T01:17:50.565724",
+    "balance": 3000.00,
+    "transactions": [
+      {
+        "id": 2,
+        "createdAt": "2023-03-17T01:17:50.570337",
+        "amount": 3000.00,
+        "type": "DEPOSIT"
+      }
+    ],
+    "id": 2
+  },
+  {
+    "type": "SAVINGS",
+    "createdAt": "2023-03-17T01:06:59.359601",
+    "balance": 150.00,
+    "transactions": [
+      {
+        "id": 1,
+        "createdAt": "2023-03-17T01:06:59.375226",
+        "amount": 300.00,
+        "type": "DEPOSIT"
+      },
+      {
+        "id": 3,
+        "createdAt": "2023-03-17T01:18:31.847936",
+        "amount": 150.00,
+        "type": "WITHDRAW"
+      }
+    ],
+    "id": 1
+  }
+]
+```
 ### Account APIs:
 
 **Create Account:**
@@ -145,7 +194,7 @@ curl --location --request POST 'host.docker.internal:8080/api/v1/account/withdra
 ```
 status: `200 OK`
 
-**Get Customer Accounts By CustomerId:**
+**Get Customer Accounts By Id:**
 
 Path: **GET
 /api/v1/account/{id}**
@@ -157,28 +206,32 @@ curl --location 'host.docker.internal:8080/api/v1/account/1'
 status: `200 OK`
 
 ```json
-[
+{
+  "type": "SAVINGS",
+  "createdAt": "2023-03-17T01:34:30.62465",
+  "balance": 550.00,
+  "transactions": [
     {
-        "type": "SAVINGS",
-        "createdAt": "2023-03-12T03:25:48.803672",
-        "balance": 8000.00,
-        "transactions": [
-            {
-                "id": 52,
-                "createdAt": "2023-03-12T03:25:48.923193",
-                "amount": 9000.00,
-                "type": "DEPOSIT"
-            },
-            {
-                "id": 53,
-                "createdAt": "2023-03-12T03:26:52.349793",
-                "amount": 1000.00,
-                "type": "WITHDRAW"
-            }
-        ],
-        "id": 52
+      "id": 1,
+      "createdAt": "2023-03-17T01:34:30.640266",
+      "amount": 300.00,
+      "type": "DEPOSIT"
+    },
+    {
+      "id": 2,
+      "createdAt": "2023-03-17T01:34:32.478285",
+      "amount": 400.00,
+      "type": "DEPOSIT"
+    },
+    {
+      "id": 3,
+      "createdAt": "2023-03-17T01:34:36.17135",
+      "amount": 150.00,
+      "type": "WITHDRAW"
     }
-]
+  ],
+  "id": 1
+}
 ```
 
 **Get Account Balance:**
@@ -275,12 +328,12 @@ status: `200 OK`
 
 ## Steps:
 1. Register
-2. Create Account
-3. Deposit, withdraw, check account
+2. Create Account with initialCredit
+3. Deposit, withdraw, check accounts and their transactions
 
 ## Could be improved:
-1. Add authentication
-2. Get the customer_id from the authenticated customer
+1. Add authentication and authorization (e.g. Spring Security)
+2. Adding on auth we can also get the customer_id from the authenticated customer, get customer accounts by authenticated customer, and so on...
 3. Increase unit testcases coverage
 4. Break project into microservices
 5. Add API gateway to manage instances
