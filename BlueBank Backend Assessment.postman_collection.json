@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"Salma\",\r\n    \"lastName\": \"Yassin\",\r\n    \"email\": \"salmamyassinn@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"firstName\": \"Frodo\",\r\n    \"lastName\": \"Baggins\",\r\n    \"email\": \"fbaggins@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -44,7 +44,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"customerId\":1,\r\n    \"initialCredit\": 9000,\r\n    \"type\": \"SAVINGS\"\r\n}",
+					"raw": "{\r\n    \"customerId\":1,\r\n    \"initialCredit\": 3000,\r\n    \"type\": \"CHECKING\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -70,21 +70,9 @@
 		},
 		{
 			"name": "Get Customer's Data By Email",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"customerId\":302,\r\n    \"initialCredit\": 8000,\r\n    \"type\": \"CHECKING\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "host.docker.internal:8080/api/v1/customer?email=salmamyassinn@gmail.com",
 					"host": [
@@ -110,21 +98,9 @@
 		},
 		{
 			"name": "Get Customer's Data By Id",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"customerId\":302,\r\n    \"initialCredit\": 8000,\r\n    \"type\": \"CHECKING\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "host.docker.internal:8080/api/v1/customer/1",
 					"host": [
@@ -138,6 +114,30 @@
 						"v1",
 						"customer",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer All Customer Accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "host.docker.internal:8080/api/v1/customer/1/accounts",
+					"host": [
+						"host",
+						"docker",
+						"internal"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"customer",
+						"1",
+						"accounts"
 					]
 				}
 			},
@@ -204,30 +204,6 @@
 							"key": "amount",
 							"value": "1000"
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Customer All Customer Accounts",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "host.docker.internal:8080/api/v1/customer/1/accounts",
-					"host": [
-						"host",
-						"docker",
-						"internal"
-					],
-					"port": "8080",
-					"path": [
-						"api",
-						"v1",
-						"customer",
-						"1",
-						"accounts"
 					]
 				}
 			},
