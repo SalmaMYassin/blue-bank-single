@@ -27,9 +27,9 @@ public record AccountController(AccountService accountService) {
 
     }
 
-    @GetMapping(path = "{customerId}")
-    public List<Account> getCustomerAccounts(@PathVariable Long customerId) {
-        return accountService.getCustomerAccounts(customerId);
+    @GetMapping(path = "{id}")
+    public Account getCustomerAccounts(@PathVariable Long id) {
+        return accountService.getAccountById(id);
     }
 
     @GetMapping(path = "balance/{id}")

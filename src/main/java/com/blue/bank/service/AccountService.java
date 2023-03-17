@@ -39,11 +39,7 @@ public record AccountService(AccountRepository accountRepository,
 
 
     public Boolean hasEnoughCredit(Long accountId, BigDecimal amount) {
-        return amount.compareTo(getTotalCredit(accountId)) < 0;
-    }
-
-    public List<Account> getCustomerAccounts(Long customerId) {
-        return accountRepository.findAllByCustomerId(customerId);
+        return amount.compareTo(getTotalCredit(accountId)) <= 0;
     }
 
     public Boolean exists(Long id) {
