@@ -248,11 +248,11 @@ status: `200 OK`
 **Get Account Balance:**
 
 Path: **GET
-/api/v1/account/{id}**
+/api/v1/account/balance/{id}**
 
 Example:
 ```bash
-curl --location 'host.docker.internal:8080/api/v1/account/balance/52'
+curl --location 'host.docker.internal:8080/api/v1/account/balance/1'
 ```
 status: `200 OK`
 
