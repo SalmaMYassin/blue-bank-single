@@ -6,6 +6,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
-    Page<Transaction> findAllByAccountId(Long accountId, Pageable pageable);
+    Page<Transaction> findAllByAccountIdOrderByCreatedAtDesc(Long accountId, Pageable pageable);
 
 }

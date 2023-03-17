@@ -48,7 +48,7 @@ public record TransactionService(AccountRepository accountRepository,
     }
 
     public Page<Transaction> getAllByAccountId(Long accountId, int page, int size) {
-        return transactionRepository.findAllByAccountId(accountId, PageRequest.of(page, size));
+        return transactionRepository.findAllByAccountIdOrderByCreatedAtDesc(accountId, PageRequest.of(page, size));
     }
 
 
