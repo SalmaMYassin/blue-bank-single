@@ -11,6 +11,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -36,5 +39,14 @@ public class BankApplication {
                     BigDecimal.valueOf(300), customerService.getCustomerByEmail("salmamyassinn@gmail.com").getId());
             accountService.create(accountCreationRequest);
         };
+    }
+
+    @Configuration
+    public class WebConfiguration implements WebMvcConfigurer {
+
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**").allowedMethods("*");
+        }
     }
 }
